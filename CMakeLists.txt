@@ -8,3 +8,9 @@ add_executable(Singleton main.cpp Singleton.cpp)
 
 # Добавляем исполняемый файл для тестов
 add_executable(SingletonTest test.cpp Singleton.cpp)
+
+# Добавляем тесты с использованием CTest
+enable_testing()
+
+# Добавляем тестовый случай
+add_test(NAME SingletonTest COMMAND SingletonTest)
