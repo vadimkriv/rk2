@@ -1,13 +1,12 @@
+
 #include "Singleton.h"
 
-#include <iostream>
-
-std::atomic<Singleton *>Singleton::instance {nullptr};
+std::atomic<Singleton *> Singleton::instance{nullptr};
 std::mutex Singleton::mutex;
 
 Singleton *Singleton::getInstance()
 {
-    if(!instance)
+    if (!instance)
     {
         std::lock_guard<std::mutex> lock(mutex);
         if (!instance)
@@ -29,4 +28,3 @@ void Singleton::reset()
     delete value;
     instance = nullptr;
 }
-
