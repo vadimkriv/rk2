@@ -1,20 +1,11 @@
-cmake_minimum_required(VERSION 3.10)
 
-# Название проекта
+cmake_minimum_required(VERSION 3.10)
 project(Singleton)
 
-# Установить стандарт C++
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 17)
 
-# Добавить исходные файлы
-add_executable(Singleton src/main.cpp)
+# Добавляем исполняемый файл для основного приложения
+add_executable(Singleton main.cpp Singleton.cpp)
 
-# Добавить тесты
-enable_testing()
-include_directories(${GTEST_INCLUDE_DIRS})
-
-add_executable(SingletonTest tests/test_Singleton.cpp)
-target_link_libraries(SingletonTest ${GTEST_LIBRARIES} pthread)
-
-add_test(NAME SingletonTest COMMAND SingletonTest)
+# Добавляем исполняемый файл для тестов
+add_executable(SingletonTest test.cpp Singleton.cpp)
